@@ -11,10 +11,10 @@ body {
 }
 
 .alphabet {
-  width: 80vmin;
-  height: 80vmin;
+  width: 0vmin;
+  height: 0vmin;
   background-color: #ef4444;
-  box-shadow: inset 0px 0px 70px 0px rgba(0,0,0,0.75);
+  box-shadow: inset 0px 0px 70px 0px rgba(0, 0, 0, 0.75);
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -22,13 +22,43 @@ body {
   transform: translate(-50%, -50%);
 }
 
+.loaded .alphabet {
+  animation: enlarge 2s ease-in-out 1s forwards;
+}
+
+@keyframes enlarge {
+  to {
+    width: 80vmin;
+    height: 80vmin;
+  }
+}
+
 .letter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   font-size: clamp(0.5rem, 5vmin, 3rem);
-  position:absolute;
-  background-color: black;
   width: clamp(0.5rem, 5vmin, 3rem);
   height: clamp(0.5rem, 5vmin, 3rem);
   line-height: clamp(0.5rem, 5vmin, 3rem);
   text-align: center;
   transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+@keyframes position {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    top: var(--x);
+    left: var(--y);
+    opacity: 1;
+  }
+}
+
+.letter.loaded {
+  /* display: block; */
+  animation: position 1s ease-in-out 3s forwards;
 }

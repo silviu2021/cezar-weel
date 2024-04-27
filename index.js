@@ -17,9 +17,6 @@ const distance = 0.9;
 const scaledRadius = radius * distance;
 const startAngle = 180;
 
-console.log(alphabet[0])
-console.log(alphabet[1])
-
 for (let i = 0; i < alphabet.length; i++) {
   const letter = alphabet[i];
   const letterEl = document.createElement("div");
@@ -32,8 +29,13 @@ for (let i = 0; i < alphabet.length; i++) {
   const x = centerX + scaledRadius * Math.cos(angleRadians);
   const y = centerY + scaledRadius * Math.sin(angleRadians);
 
-  letterEl.style.top = `${x}%`;
-  letterEl.style.left = `${y}%`;
+  letterEl.style.setProperty("--x", `${x}%`);
+  letterEl.style.setProperty("--y", `${y}%`);
 
   alphabetEl.appendChild(letterEl);
+  setTimeout(() => {
+    letterEl.classList.add("loaded");
+  }, 100 * (i + 1));
 }
+
+document.body.classList.add("loaded");
