@@ -5,8 +5,7 @@ const alphabet = Array.from({ length: 26 }, (_, i) =>
   String.fromCharCode(65 + i)
 ).reverse();
 
-let lastElement = alphabet.pop();
-alphabet.unshift(lastElement);
+alphabet.unshift("_")
 
 const angleIncrement = 360 / alphabet.length;
 
@@ -18,17 +17,18 @@ const distance = 0.9;
 const scaledRadius = radius * distance;
 const startAngle = 180;
 
-for (let i = 0; i < alphabet.length; i++) {
+for (let i = alphabet.length - 1; i >= 0; i--) {
   const letter = alphabet[i];
   const letterEl = document.createElement("div");
   const letterAltEl = document.createElement("div");
   letterEl.classList.add("letter");
+  letterEl.classList.add("originalLetter");
   letterAltEl.classList.add("letter");
   letterAltEl.classList.add("letterAlt");
   letterEl.innerHTML = letter;
   letterAltEl.innerHTML = letter;
 
-  const angleDegrees = startAngle + angleIncrement * i;
+  const angleDegrees = startAngle + angleIncrement * (i + 1);
   const angleRadians = (angleDegrees * Math.PI) / 180;
 
   const x = centerX + scaledRadius * Math.cos(angleRadians);
@@ -43,7 +43,7 @@ for (let i = 0; i < alphabet.length; i++) {
   alphabet2El.appendChild(letterAltEl);
   setTimeout(() => {
     letterEl.classList.add("loaded");
-  }, 100 * (i + 1));
+  }, 100 * (alphabet.length - i));
 }
 
 setTimeout(() => {
@@ -56,6 +56,11 @@ setTimeout(() => {
 }, (alphabet.length - 1) * 100 + 6000);
 
 setTimeout(() => {
+    alphabetEl.classList.add("loaded3");
+    alphabet2El.classList.add("loaded3");
+  }, (alphabet.length - 1) * 100 + 8000);
+
+setTimeout(() => {
   document.body.classList.add("loaded");
 }, 100);
 
@@ -65,12 +70,30 @@ const addBtn = document.querySelector(".add");
 const substractBtn = document.querySelector(".substract");
 const nr = document.querySelector(".number");
 
+const ajjustOffset = () => {
+  const letters = [...document.querySelectorAll(".alphabet .letter")].reverse();
+  for (let i = alphabet.length - 1; i >= 0; i--) {
+    const letterEl = letters[i];
+
+    const angleDegreeso = startAngle + angleIncrement * (i - offset + 1);
+    const angleRadianso = (angleDegreeso * Math.PI) / 180;
+
+    const x = centerX + scaledRadius * Math.cos(angleRadianso);
+    const y = centerY + scaledRadius * Math.sin(angleRadianso);
+
+    letterEl.style.setProperty("--x", `${x}%`);
+    letterEl.style.setProperty("--y", `${y}%`);
+  }
+};
+
 addBtn.addEventListener("click", () => {
   offset++;
+  ajjustOffset();
   nr.innerHTML = offset;
 });
 
 substractBtn.addEventListener("click", () => {
   offset--;
+  ajjustOffset();
   nr.innerHTML = offset;
 });
