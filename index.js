@@ -51,10 +51,26 @@ setTimeout(() => {
 }, (alphabet.length - 1) * 100 + 4000);
 
 setTimeout(() => {
-    alphabetEl.classList.add("loaded2");
-    alphabet2El.classList.add("loaded2");
-  }, (alphabet.length - 1) * 100 + 6000);
+  alphabetEl.classList.add("loaded2");
+  alphabet2El.classList.add("loaded2");
+}, (alphabet.length - 1) * 100 + 6000);
 
-setTimeout(()=>{
-    document.body.classList.add("loaded");
-},100)
+setTimeout(() => {
+  document.body.classList.add("loaded");
+}, 100);
+
+let offset = 0;
+
+const addBtn = document.querySelector(".add");
+const substractBtn = document.querySelector(".substract");
+const nr = document.querySelector(".number");
+
+addBtn.addEventListener("click", () => {
+  offset++;
+  nr.innerHTML = offset;
+});
+
+substractBtn.addEventListener("click", () => {
+  offset--;
+  nr.innerHTML = offset;
+});

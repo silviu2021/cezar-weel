@@ -21,6 +21,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   transition: all 2s ease-in-out;
+  z-index: 1;
 }
 
 .alphabet2 {
@@ -30,8 +31,11 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
+  box-shadow: inset 0px 0px 70px 0px rgba(0, 0, 0, 0.75);
   transform: translate(-50%, -50%);
   transition: all 2s ease-in-out;
+  background-color: #be185d;
+  display: none;
 }
 
 body.loaded .alphabet {
@@ -52,6 +56,9 @@ body.loaded .alphabet.loaded.loaded2 {
 .alphabet2 .letter {
   top: var(--x);
   left: var(--y);
+}
+body.loaded .alphabet2.loaded2 {
+  display: block;
 }
 
 body.loaded .alphabet2.loaded2 .letter {
@@ -86,4 +93,38 @@ body.loaded .alphabet2.loaded2 .letter {
 .letter.loaded {
   /* display: block; */
   animation: position 1s ease-in-out 3s forwards;
+}
+
+.controls {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  font-size: clamp(0.5rem, 5vmin, 3rem);
+  transform: translate(-50%, -50%);
+  gap: 4vmin;
+  opacity: 0;
+}
+body.loaded .alphabet.loaded.loaded2 .controls {
+  opacity: 1;
+  transition: all 1s ease-in-out;
+}
+
+.controls .add,
+.controls .substract {
+  width: clamp(0.5rem, 5vmin, 3rem);
+  height: clamp(0.5rem, 5vmin, 3rem);
+  line-height: clamp(0.5rem, 5vmin, 3rem);
+  border-radius: 5%;
+  text-align: center;
+  border-style: solid;
+  border-width: clamp(0.5rem, 1vmin, 3rem);
+  cursor: pointer;
+  user-select: none;
+}
+
+.controls .number {
+  margin-top: clamp(0.5rem, 1vmin, 3rem);
+  height: clamp(0.5rem, 5vmin, 3rem);
+  line-height: clamp(0.5rem, 5vmin, 3rem);
 }
