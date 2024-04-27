@@ -13,7 +13,8 @@ body {
 .alphabet {
   width: 80vmin;
   height: 80vmin;
-  background-color: red;
+  background-color: #ef4444;
+  box-shadow: inset 0px 0px 70px 0px rgba(0,0,0,0.75);
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -24,5 +25,10 @@ body {
 .letter {
   font-size: clamp(0.5rem, 5vmin, 3rem);
   position:absolute;
+  background-color: black;
+  width: clamp(0.5rem, 5vmin, 3rem);
+  height: clamp(0.5rem, 5vmin, 3rem);
+  line-height: clamp(0.5rem, 5vmin, 3rem);
+  text-align: center;
   transform: translate(-50%, -50%);
 }
