@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Sono:wght@200..800&display=swap");
+body {
+  margin: 0;
+  background-color: #0f172a;
+  color: #6ee7b7;
+  font-family: "Sono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: "MONO" 1;
+}
+
+.alphabet {
+  width: 80vmin;
+  height: 80vmin;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.letter {
+  font-size: clamp(0.5rem, 5vmin, 3rem);
+  position:absolute;
+  transform: translate(-50%, -50%);
+}
