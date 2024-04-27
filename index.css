@@ -20,17 +20,42 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: all 2s ease-in-out;
 }
 
-.loaded .alphabet {
-  animation: enlarge 2s ease-in-out 1s forwards;
+.alphabet2 {
+  width: 80vmin;
+  height: 80vmin;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 2s ease-in-out;
 }
 
-@keyframes enlarge {
-  to {
-    width: 80vmin;
-    height: 80vmin;
-  }
+body.loaded .alphabet {
+  width: 65vmin;
+  height: 65vmin;
+}
+
+body.loaded .alphabet.loaded {
+  width: 80vmin;
+  height: 80vmin;
+}
+
+body.loaded .alphabet.loaded.loaded2 {
+  width: 65vmin;
+  height: 65vmin;
+}
+
+.alphabet2 .letter {
+  top: var(--x);
+  left: var(--y);
+}
+
+body.loaded .alphabet2.loaded2 .letter {
+  opacity: 1;
 }
 
 .letter {
