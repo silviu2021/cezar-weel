@@ -12,17 +12,24 @@ body {
   font-weight: 500;
   font-style: normal;
   font-variation-settings: "MONO" 1;
-  background-image: url("bg.webp");
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 100vw;
-  height: 100vh;
-  background: radial-gradient(
+  background-image: radial-gradient(
       circle,
       rgba(255, 255, 255, 0.5438550420168067) 0%,
       rgba(0, 0, 0, 1) 100%
-    ),
-    url("bg.webp");
+    ), url("bg.webp");
+
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+
+  background-size: cover;
+  background-position: center;
+  background-color: #0f172a;
+  box-shadow: inset 50vw 50vh 10vmin 50vmin rgba(0, 0, 0, 1);
+  transition: box-shadow 0.5s ease-in-out;
+}
+body.loaded {
+  box-shadow: inset 0vw 0vh 10vmin 10vmin rgba(0, 0, 0, 0.65);
 }
 
 .alphabet {
