@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Sono:wght@200..800&display=swap");
-:root{
-    --min: 72vmin;
-    --max: 90vmin;
+:root {
+  --min: 72vmin;
+  --max: 90vmin;
 }
 body {
   margin: 0;
@@ -17,14 +17,19 @@ body {
   background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
-  background: radial-gradient(circle, rgba(255,255,255,0.5438550420168067) 0%, rgba(0,0,0,1) 100%), url("bg.webp");
+  background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.5438550420168067) 0%,
+      rgba(0, 0, 0, 1) 100%
+    ),
+    url("bg.webp");
 }
 
 .alphabet {
   width: 0vmin;
   height: 0vmin;
-  background-color: rgba(56, 189, 248, 0.8);
-  
+  background-color: rgba(56, 189, 248, 0.6);
+
   box-shadow: inset 0px 0px 70px 0px rgba(0, 0, 0, 0.75);
   border-radius: 50%;
   position: absolute;
@@ -58,8 +63,8 @@ body.loaded .alphabet.loaded {
 }
 
 body.loaded .alphabet.loaded.loaded2 {
-    width: var(--min);
-    height: var(--min);
+  width: var(--min);
+  height: var(--min);
 }
 
 .alphabet2 .letter {
@@ -69,13 +74,34 @@ body.loaded .alphabet.loaded.loaded2 {
 
 body.loaded .alphabet2.loaded2 {
   display: block;
-  transition: box-shadow 2s ease-in-out, background-color 2s ease-in-out;
 }
 
 body.loaded .alphabet2.loaded3 {
   z-index: 1;
-  box-shadow: inset 0px 0px 70px 0px rgba(0, 0, 0, 0.75);
-  background-color: rgba(132, 204, 22, 0.8);
+}
+
+body.loaded .alphabet2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 9vmin;
+  padding: 0vmin;
+  border-radius: 50%;
+  transition: box-shadow 0.5s ease-in-out, margin 0.5s ease-in-out,
+    padding 0.5s ease-in-out;
+
+  box-shadow: inset 0px 0px 0px 0px rgba(0, 0, 0, 0),
+    inset 0px 0px 0px 0vmin rgba(59, 199, 104, 0);
+}
+body.loaded .alphabet2.loaded3::before {
+  box-shadow: inset 0px 0px 70px 0px rgba(0, 0, 0, 0.75),
+    inset 0px 0px 0px 9vmin rgba(59, 199, 104, 0.6);
+
+  margin: 0vmin;
+  padding: 9vmin;
 }
 
 body.loaded .alphabet2.loaded2 .letter {
