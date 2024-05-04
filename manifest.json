@@ -2,7 +2,7 @@
     "name": "Cezar",
     "short_name": "Cezar",
     "description": "Cezar",
-    "start_url": "/",
+    "start_url": "/cezar-weel",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#ffffff",
@@ -13,9 +13,9 @@
         "type": "image/svg"
       },
       {
-        "src": "favicon.svg",
+        "src": "Screenshot_1.png",
         "sizes": "512x512",
-        "type": "image/svg"
+        "type": "image/png"
       }
     ]
   }
