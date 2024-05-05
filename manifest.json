@@ -2,7 +2,6 @@
     "name": "Cezar",
     "short_name": "Cezar",
     "description": "Cezar",
-    "start_url": "/",
     "display": "fullScreen",
     "orientation": "portrait",
     "background_color": "#ffffff",
