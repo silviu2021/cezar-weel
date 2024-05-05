@@ -3,7 +3,9 @@
     "short_name": "Cezar",
     "description": "Cezar",
     "start_url": "/cezar-weel",
-    "display": "standalone",
+    "scope": "/cezar-weel",
+    "display": "fullScreen",
+    "orientation": "portrait",
     "background_color": "#ffffff",
     "theme_color": "#ffffff",
     "icons": [
