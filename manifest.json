@@ -2,6 +2,8 @@
     "name": "Cezar",
     "short_name": "Cezar",
     "description": "Cezar",
+    "start_url": "https://silviu2021.github.io/cezar-weel/",
+    "scope": "https://silviu2021.github.io/cezar-weel/",
     "display": "fullScreen",
     "orientation": "portrait",
     "background_color": "#ffffff",
